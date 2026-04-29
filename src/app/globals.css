@@ -1294,10 +1294,6 @@ input[type="number"]::-webkit-inner-spin-button {
 }
 
 /* Responsive poster cards in carousel */
-.compact-poster-btn {
-  width: min(32vw, 130px);
-  min-width: 110px;
-}
 
 @media (min-width: 768px) {
   .poster-card {

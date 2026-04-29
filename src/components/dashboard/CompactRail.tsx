@@ -161,7 +161,6 @@ export default function CompactRail({ label, subtitle, movies, onMovieClick, onO
             key={m.tmdb_id ?? m.id}
             onClick={() => onMovieClick(m)}
             whileTap={{ scale: 0.97 }}
-            className="compact-poster-btn"
             style={{
               flexShrink: 0,
               scrollSnapAlign: "start",
