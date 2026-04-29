@@ -1301,13 +1301,8 @@ input[type="number"]::-webkit-inner-spin-button {
 
 @media (min-width: 768px) {
   .poster-card {
-    width: max(160px, 18vw) !important;
-    min-width: 160px !important;
-  }
-
-  .compact-poster-btn {
-    width: max(140px, 15vw);
-    min-width: 140px;
+    width: min(18vw, 160px) !important;
+    min-width: 130px !important;
   }
 }
 
