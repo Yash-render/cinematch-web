@@ -30,7 +30,7 @@ export default function MovieCard({ movie, priority = false, className = "", com
   // DPR by going one size up.
   const posterSize = compact ? "w342" : "w500";
   const poster = usePoster(movie.poster_path, recommendationId(movie), posterSize);
-  
+
   let fullDate = "";
   if (showFullDate && "release_date" in movie && movie.release_date) {
     const date = new Date(movie.release_date);
@@ -70,7 +70,7 @@ export default function MovieCard({ movie, priority = false, className = "", com
             className="object-cover"
 
           />
-          
+
           {/* Gradient overlay at bottom */}
           <div className="absolute inset-x-0 bottom-0 h-2/5 bg-gradient-to-t from-black/90 via-black/60 to-transparent pointer-events-none" />
 
@@ -147,25 +147,15 @@ export default function MovieCard({ movie, priority = false, className = "", com
         </h2>
 
         {compact ? (
-          <div className="mt-2 flex flex-wrap items-center gap-1.5">
-            {year && (
-              <span className="px-1.5 py-0.5 rounded bg-white/10 text-[10px] font-medium text-white/80">
-                {year}
-              </span>
-            )}
-            {lang && (
-              <span className="px-1.5 py-0.5 rounded bg-white/10 text-[10px] font-medium text-white/80">
-                {lang}
-              </span>
-            )}
+          <div className="mt-2 flex flex-wrap items-center gap-1.5 text-[11px] text-white/70 font-medium">
+            {year && <span>{year}</span>}
+            {year && lang && <span className="opacity-50">·</span>}
+            {lang && <span>{lang}</span>}
+            {(year || lang) && (imdb || tmdbRating) && <span className="opacity-50">·</span>}
             {imdb ? (
-              <span className="px-1.5 py-0.5 rounded bg-[#fbbf24]/15 text-[10px] font-bold text-[#fbbf24]">
-                IMDb {imdb}
-              </span>
+              <span className="text-[#fbbf24] font-semibold">IMDb {imdb}</span>
             ) : tmdbRating ? (
-              <span className="px-1.5 py-0.5 rounded bg-[#fbbf24]/15 text-[10px] font-bold text-[#fbbf24]">
-                ★ {tmdbRating}
-              </span>
+              <span className="text-[#fbbf24] font-semibold">★ {tmdbRating}</span>
             ) : null}
           </div>
         ) : (
