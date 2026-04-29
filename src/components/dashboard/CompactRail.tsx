@@ -162,6 +162,8 @@ export default function CompactRail({ label, subtitle, movies, onMovieClick, onO
             onClick={() => onMovieClick(m)}
             whileTap={{ scale: 0.97 }}
             style={{
+              width: "min(32vw, 130px)",
+              minWidth: 110,
               flexShrink: 0,
               scrollSnapAlign: "start",
               background: "none",
