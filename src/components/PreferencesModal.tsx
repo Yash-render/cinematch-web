@@ -67,7 +67,6 @@ export default function PreferencesModal({ preferences, onUpdate, onClose, mode 
 
   const handleApply = () => {
     onUpdate(localPrefs);
-    onClose();
   };
 
   return (
