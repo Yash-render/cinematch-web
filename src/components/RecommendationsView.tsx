@@ -255,6 +255,16 @@ export default function RecommendationsView({
   // Detail Modal state
   const [activeMovie, setActiveMovie] = useState<DetailMovie | null>(null);
 
+  // When the full-screen stack detail overlay is open, mark the body so the
+  // site footer can hide instead of showing through as a background layer.
+  useEffect(() => {
+    if (typeof document === "undefined") return;
+    document.body.classList.toggle("cinematch-stack-open", !!activeStack);
+    return () => {
+      document.body.classList.remove("cinematch-stack-open");
+    };
+  }, [activeStack]);
+
   // Route-based navigation for sub-pages
   const openYourLikes = () => router.push("/your-likes");
   const openWatchlist = () => router.push("/your-likes?filter=watchlist");

@@ -43,6 +43,7 @@ export default function AppFooter() {
 
   return (
     <footer
+      className="app-site-footer"
       style={{
         marginTop: 32,
         padding: "32px 24px calc(64px + env(safe-area-inset-bottom)) 24px",
