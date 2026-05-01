@@ -27,12 +27,14 @@ const HIDDEN_ROUTES: Array<(p: string) => boolean> = [
   // Dashboard is a fixed-viewport swipe stack; the footer would render
   // *behind* it (children + footer are siblings in the body flow but the
   // stack uses fixed/100dvh layers), so hide it entirely on /dashboard.
-  (p) => p === "/dashboard" || p === "/",
+  // Match with startsWith so a trailing slash (`/dashboard/`) still hides.
+  (p) => p === "/" || p.startsWith("/dashboard"),
   // Your-likes / search / explore are app-shell pages where the bottom nav
   // already anchors the bottom of the screen; the footer would clash.
   (p) => p.startsWith("/your-likes"),
   (p) => p.startsWith("/search"),
   (p) => p.startsWith("/explore"),
+  (p) => p.startsWith("/person"),
 ];
 
 export default function AppFooter() {
@@ -43,7 +45,6 @@ export default function AppFooter() {
 
   return (
     <footer
-      className="app-site-footer"
       style={{
         marginTop: 32,
         padding: "32px 24px calc(64px + env(safe-area-inset-bottom)) 24px",
